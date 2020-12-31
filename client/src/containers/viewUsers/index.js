@@ -45,7 +45,7 @@ class AddUser extends Component {
                     <Table.Cell>{user.name.en}</Table.Cell>
                     <Table.Cell textAlign='center'>{user.gender}</Table.Cell>
                     <Table.Cell>{user.email}</Table.Cell>
-                    <Table.Cell textAlign='center'>{user.division}</Table.Cell>
+                    <Table.Cell textAlign='center'>{(user.division === 'Warehouse' ? 'Gudang' : user.division)}</Table.Cell>
                     <Table.Cell textAlign='center'>{user.position}</Table.Cell>
                     <Table.Cell>{user.address}</Table.Cell>
                     <Table.Cell>

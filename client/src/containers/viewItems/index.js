@@ -131,8 +131,9 @@ class ViewItem extends Component {
                     <Table.Cell textAlign='right'>{parseFloat(item.price).toLocaleString('id', { style: 'currency', currency: 'IDR' })}</Table.Cell>
                     <Table.Cell textAlign='center'>{Moment(item.purchase_date).format('DD-MMMM-YYYY')}</Table.Cell>
                     <Table.Cell textAlign='center'>{item.item_status}</Table.Cell>
-                    <Table.Cell><img src={url + item.item_picture} width="100%"/></Table.Cell>
-                    <Table.Cell textAlign='center'><a href={url + item.manual_book} target="Resume">Download</a></Table.Cell>
+                    {/* <Table.Cell><img src={url + item.item_picture} width="100%"/></Table.Cell> */}
+                    <Table.Cell><img src={item.item_picture} width="100%"/></Table.Cell>
+                    <Table.Cell textAlign='center'><a href={item.manual_book} target="Resume">Download</a></Table.Cell>
                     <Table.Cell>
                         {/* <Icon name='trash outline' size='large' onClick={this.handleOpen.bind(this,item)} /> */}
                         {/* <Icon name='trash outline' size='large' onClick={this.onPressDelete.bind(this, item)} /> */}

@@ -104,7 +104,7 @@ class AddItem extends Component {
         formData.append('file', event.target.files[0]);
         axios.post('http://localhost:3000/items/uploads', formData, { onUploadProgress: true }).then(response => {
             this.setState({
-                item_picture: response.data.path
+                item_picture: response.data
             })
         }).catch(error => {
             console.log('Info: Come from error');
@@ -117,7 +117,7 @@ class AddItem extends Component {
         formData.append('file', event.target.files[0]);
         axios.post('http://localhost:3000/items/uploads', formData, { onUploadProgress: true }).then(response => {
             this.setState({
-                manual_book: response.data.path
+                manual_book: response.data
             })
         }).catch(error => {
             console.log('Info: Come from error');

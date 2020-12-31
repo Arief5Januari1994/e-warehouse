@@ -12,7 +12,7 @@ const UserSchema = mongoose.Schema({
     position: {
         type: String,
         required: true,
-        enum: ["Manajemen Direksi", "HSE", "Project Manager", "Site Manager", "Supervisor", "Administrasi Keuangan"]
+        enum: ["Manajemen Direksi", "Koordinator Project", "HSE", "Project Manager", "Site Manager", "Supervisor", "Administrasi Keuangan"]
     },
     division: {
         type: String,
@@ -22,7 +22,7 @@ const UserSchema = mongoose.Schema({
     gender: {
         type: String,
         required: true,
-        enum: ["Male", "Female"]
+        enum: ["Pria", "Wanita"]
     },
     address: {
         type: String,

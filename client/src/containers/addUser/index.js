@@ -92,8 +92,8 @@ class AddUser extends Component {
         const { token, user, isLoggingIn, addingUserError } = this.props.user;
         let error = null;
         const genderOptions = [
-            { key: 'Male', value: 'Male', text: 'Pria' },
-            { key: 'Female', value: 'Female', text: 'Wanita' },
+            { key: 'Pria', value: 'Pria', text: 'Pria' },
+            { key: 'Wanita', value: 'Wanita', text: 'Wanita' },
         ];
 
         const divisionOptions = [
@@ -101,11 +101,12 @@ class AddUser extends Component {
             { key: 'HSE', value: 'HSE', text: 'HSE' },
             { key: 'Operasi dan Pemeliharaan', value: 'Operasi dan Pemeliharaan', text: 'Operasi dan Pemeliharaan' },
             { key: 'Keuangan', value: 'Keuangan', text: 'Keuangan' },
-            { key: 'Warehouse', value: 'Warehouse', text: 'Gudang' },
+            { key: 'Gudang', value: 'Gudang', text: 'Gudang' },
         ];
 
         const positionOptions = [
             { key: 'Manajemen Direksi', value: 'Manajemen Direksi', text: 'Manajemen Direksi' },
+            { key: 'Koordinator Project', value: 'Koordinator Project', text: 'Koordinator Project' },
             { key: 'HSE', value: 'HSE', text: 'HSE' },
             { key: 'Project Manager', value: 'Project Manager', text: 'Project Manager' },
             { key: 'Site Manager', value: 'Site Manager', text: 'Site Manager' },
@@ -167,6 +168,7 @@ class AddUser extends Component {
                             <Field name="position" component="select" placeholder="Pilih Jabatan">
                                 <option></option>
                                 <option value="Manajemen Direksi">Manajemen Direksi</option>
+                                <option value="Koordinator Project">Koordinator Project</option>
                                 <option value="HSE">HSE</option>
                                 <option value="Project Manager">Project Manager</option>
                                 <option value="Site Manager">Site Manager</option>
@@ -179,8 +181,8 @@ class AddUser extends Component {
                             {/* <Select name="gender" placeholder='Pilih Jenis Kelamin' options={genderOptions} /> */}
                             <Field name="gender" component="select" placeholder="Pilih Jenis Kelamin">
                                 <option></option>
-                                <option value="Male">Pria</option>
-                                <option value="Female">Wanita</option>
+                                <option value="Pria">Pria</option>
+                                <option value="Wanita">Wanita</option>
                             </Field>
                         </Form.Field>
                         <Form.Field inline>

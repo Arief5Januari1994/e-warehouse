@@ -4,6 +4,14 @@ import { validateCreateVehicleTax } from "../validators/VehicleTaxValidator"
 import { verifyAuthMiddleware } from "../utils/AuthUtil";
 
 const router = Router();
+const cloudinary = require('cloudinary')
+const fs = require('fs')
+//Konfigurasi untuk menyimpan foto produk ke cloudinary
+cloudinary.config({
+    cloud_name : 'dsm3uouph',
+    api_key: '316634259286793',
+    api_secret: 'u1XYJvd9DbHdXgC2HiN6ZSZmAgQ'
+})
 
 const multer  = require('multer')
 const storage = multer.diskStorage({
@@ -18,10 +26,29 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage });
 
-router.post('/uploads', upload.single('file'), (req, res) => {
-    console.log(req.file);
-    res.status(200).send(req.file);
+router.post('/uploads', upload.single('file'),(req, res) => {
+
+    let urls = [];
+    console.log('ini file',req.file)
+    const uploader = function(path) {
+        return cloudinary.v2.uploader.upload(path,{folder: 'items'}).then(result => {return result})
+    };
+    const pathFiles = [];
+    pathFiles.push(req.file.path)
+    for (const file of pathFiles ){
+        const newPath = uploader(file);
+        newPath.then(function(result) {
+            urls.push(result.secure_url);
+            res.status(200).send(result.secure_url);
+        })
+    }
+   
 })
+
+// router.post('/uploads', upload.single('file'), (req, res) => {
+//     console.log(req.file);
+//     res.status(200).send(req.file);
+// })
 
 router.post('/', verifyAuthMiddleware, function (req, res, next) {
     validateCreateVehicleTax(req.body, function (err) {
